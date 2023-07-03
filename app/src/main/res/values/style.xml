@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BoldUnderlinedTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomImageViewStyle">
+        <item name="android:src">@drawable/mail</item>
+        <item name="android:paddingEnd">5dp</item>
+    </style>
+
+    <!-- styles.xml -->
+        <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+            <!-- Your other style attributes -->
+            <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
+        </style>
+
+        <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <item name="boxBackgroundMode">outline</item>
+            <item name="boxBackgroundColor">@drawable/textinputlayout_bg</item>
+        </style>
+
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+    </style>
+
+</resources>

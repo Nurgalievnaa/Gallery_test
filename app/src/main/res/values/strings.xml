@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Gallery_test</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="cancel">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_password">New password*</string>
+    <string name="confirm_password">Confirm password*</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="email_hint">Email<font fgcolor='#FFFF0000'>*</font></string>
+    <string name="userName_hint">User Name<font fgcolor='#FFFF0000'>*</font></string>
+    <string name="newPass_hint">New Password<font fgcolor='#FFFF0000'>*</font></string>
+    <string name="confirmPass_hint">Confirm Password<font fgcolor='#FFFF0000'>*</font></string>
+    <string name="birthday">Birthday</string>
+    <string name="email">Email</string>
+    <string name="forgot_login_or_password">Forgot login or password!</string>
+</resources>
