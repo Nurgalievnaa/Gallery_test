@@ -3,9 +3,9 @@ package com.example.gallery_test.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.gallery_test.view.HomePageFragment
-import com.example.gallery_test.view.MakeFragment
-import com.example.gallery_test.view.ProfileFragment
+import com.example.gallery_test.view.home.HomePageFragment
+import com.example.gallery_test.view.make.MakeFragment
+import com.example.gallery_test.view.profile.ProfileFragment
 
 class BottomNavigationAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 

@@ -10,7 +10,7 @@ data class PhotoItem(
     val image: ImageItem,
     val user: String
 )
+
 data class ImageItem(
-    val id: Int,
-    val name: String
+    val id: Int, val name: String
 )

@@ -12,16 +12,16 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("/oauth/v2/token")
     fun getToken(
-        @Query("client_id") clientId: String = /*todo move to const*/"70_1r5x3tudicv4o4g84cs0sc8ocs0koso40w0o4g84k0s4cc844o",
+        @Query("client_id") clientId: String = CLIENT_ID ,
         @Query("grant_type") grantType: String,
         @Query("username") username: String,
         @Query("password") password: String,
-        @Query("client_secret") clientSecret: String = /*todo move to const*/"1kda6tulcbr480g4k4og88kggksko8occkkc444cs8cssgkcco"
+        @Query("client_secret") clientSecret: String = CLIENT_SECRET
     ): Single<TokenResponse>
 
     @GET("/oauth/v2/token")
     fun refreshToken(
-        @Query("client_id") clientId: String,
+        @Query("client_id") clientId: String ,
         @Query("grant_type") grantType: String,
         @Query("refresh_token") refreshToken: String,
         @Query("client_secret") clientSecret: String
@@ -36,4 +36,9 @@ interface ApiService {
 
     @POST("/api/users")
     fun registerUser(@Body user: UserData): Single<TokenResponse>
+
+    companion object {
+        private const val CLIENT_ID = "70_1r5x3tudicv4o4g84cs0sc8ocs0koso40w0o4g84k0s4cc844o"
+        private const val CLIENT_SECRET = "1kda6tulcbr480g4k4og88kggksko8occkkc444cs8cssgkcco"
+    }
 }

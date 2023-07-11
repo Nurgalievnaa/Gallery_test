@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.LoginFragment">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/rootLayout"
@@ -15,20 +13,15 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/cancelButton"
+            style="@style/CancelButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/cancel"
-            android:textAllCaps="false"
-            android:textColor="@color/grey"
-            android:textSize="16dp" />
+            android:text="@string/cancel" />
 
         <View
+            style="@style/ViewStyle"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/whiteGrey" />
+            android:layout_height="2dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,36 +30,27 @@
             android:padding="22dp">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="94dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="134dp"
-                android:layout_marginTop="108dp"
-                android:gravity="center"
-                android:text="@string/sign_in"
-                android:textColor="@color/black"
-                android:textSize="24dp"
-                android:textStyle="bold" />
+                style="@style/SignInTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in" />
 
             <View
+                style="@style/SignInViewStyle"
                 android:layout_width="90dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="134dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/red" />
+                android:layout_height="1dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailInputLayout"
                 style="@style/CustomTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="57dp"
                 android:hint="@string/email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bordered_edit_text"
                     android:drawableEnd="@drawable/mail"
                     android:inputType="textEmailAddress"
                     android:textCursorDrawable="@drawable/cursor_color" />
@@ -75,60 +59,43 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordInputLayout"
-                style="@style/CustomTextInputLayout"
+                style="@style/CustomTextInputLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="29dp"
                 android:hint="@string/password"
-                app:passwordToggleDrawable="@drawable/eye_icon"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/whiterGrey">
+                app:passwordToggleDrawable="@drawable/eye_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bordered_edit_text"
-                    android:drawableEnd="@drawable/eye_icon"
                     android:inputType="textPassword"
                     android:textCursorDrawable="@drawable/cursor_color" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/forgotLoginAndPassword"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
+                style="@style/ForgotLoginButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:text="@string/forgot_login_or_password"
-                android:textAllCaps="false"
-                android:textColor="@color/grey"
-                android:textSize="12sp" />
+                android:text="@string/forgot_login_or_password" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/loginButton"
+                style="@style/LoginButtonStyle"
                 android:layout_width="125dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/bordered_button"
-                android:text="@string/sign_in"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in" />
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signUpButton"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/RegisterButtonStyle"
                 android:layout_width="125dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="19dp"
-                android:text="@string/sign_up"
-                android:textAllCaps="false"
-                android:textColor="@color/black" />
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

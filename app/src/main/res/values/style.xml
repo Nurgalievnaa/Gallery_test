@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="BoldUnderlinedTextAppearance" parent="@android:style/TextAppearance">
         <item name="android:textStyle">bold</item>
     </style>
@@ -10,18 +11,161 @@
     </style>
 
     <!-- styles.xml -->
-        <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-            <!-- Your other style attributes -->
-            <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
-        </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Your other style attributes -->
+        <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
+    </style>
 
-        <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <item name="boxBackgroundMode">outline</item>
-            <item name="boxBackgroundColor">@drawable/textinputlayout_bg</item>
-        </style>
+    <style name="MyTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@drawable/textinputlayout_bg</item>
+    </style>
+
+    <attr name="boxCornerRadiusBottomStart" format="dimension" />
+    <attr name="boxCornerRadiusTopStart" format="dimension" />
 
     <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">57dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
     </style>
+
+    <style name="CustomRegisterTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+    </style>
+
+    <attr name="passwordToggleEnabled" format="boolean" />
+    <attr name="passwordToggleTint" format="color" />
+
+    <style name="CustomTextInputLayout2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">29dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/whiterGrey</item>
+    </style>
+
+    <style name="CustomRegisterTextInputLayout2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/whiterGrey</item>
+    </style>
+
+    <style name="WelcomeTextStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">40dp</item>
+    </style>
+
+    <style name="WelcomeRegisterButtonStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bordered_button</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="WelcomeLoginButtonStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/bordered_button_white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="CancelButtonStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">28dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ViewStyle" parent="android:Widget.TextView">
+        <item name="android:background">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="SignInTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">108dp</item>
+        <item name="android:layout_marginStart">134dp</item>
+    </style>
+
+    <style name="SignUpTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">18dp</item>
+        <item name="android:layout_marginStart">134dp</item>
+    </style>
+
+
+    <style name="SignInViewStyle" parent="android:Widget.TextView">
+        <item name="android:background">@color/red</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginStart">128dp</item>
+    </style>
+
+    <style name="ViewStyle2" parent="android:Widget.TextView">
+        <item name="android:background">@color/red</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginStart">130dp</item>
+    </style>
+
+    <style name="ForgotLoginButtonStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="LoginButtonStyle" parent="android:Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">50dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/bordered_button</item>
+    </style>
+
+    <style name="LoginButtonStyleReg" parent="android:Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/bordered_button</item>
+    </style>
+
+    <style name="RegisterButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">19dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="RegisterButtonStyle2" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">19dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
 
 </resources>

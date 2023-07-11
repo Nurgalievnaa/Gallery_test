@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.gallery_test.BaseFragment
 import com.example.gallery_test.R
 import com.example.gallery_test.databinding.FragmentBottomNavigationBinding
+import com.example.gallery_test.view.home.HomePageFragment
+import com.example.gallery_test.view.make.MakeFragment
+import com.example.gallery_test.view.profile.ProfileFragment
 
-class BottomNavigationFragment : Fragment() {
+class BottomNavigationFragment : BaseFragment() {
     private var binding: FragmentBottomNavigationBinding? = null
 
     override fun onCreateView(
@@ -22,31 +26,25 @@ class BottomNavigationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
-            bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            bottomNavigationView.setOnItemSelectedListener  { menuItem ->
                 when (menuItem.itemId) {
                     R.id.navigation_home -> {
-                        replaceFragment(HomePageFragment())
+                        replaceFragment(R.id.fragmentContainer, HomePageFragment())
                         true
                     }
                     R.id.navigation_make -> {
-                        replaceFragment(MakeFragment())
+                        replaceFragment(R.id.fragmentContainer, MakeFragment())
                         true
                     }
                     R.id.navigation_profile -> {
-                        replaceFragment(ProfileFragment())
+                        replaceFragment(R.id.fragmentContainer, ProfileFragment())
                         true
                     }
                     else -> false
                 }
             }
         }
-        replaceFragment(HomePageFragment())
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        childFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
+        replaceFragment(R.id.fragmentContainer,HomePageFragment())
     }
 
     override fun onDestroyView() {

@@ -1,188 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".view.RegistrationFragment">
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/rootLayout">
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cancelButtonOfRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:textSize="16dp"
-        android:textAllCaps="false"
-        android:textColor="@color/grey"
-        android:layout_marginTop="28dp"
-        android:layout_marginStart="20dp"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/whiteGrey"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:paddingStart="21dp">
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="94dp"
-        android:layout_height="30dp"
-        android:textSize="24dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:text="@string/sign_up"
-        android:layout_marginTop="18dp"
-        android:gravity="center"
-        android:layout_marginStart="134dp"/>
-
-    <View
-        android:layout_width="90dp"
-        android:layout_height="1dp"
-        android:background="@color/red"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="134dp" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usernameEditText"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cancelButtonOfRegister"
+            style="@style/CancelButtonStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bordered_edit_text"
-            android:drawableEnd="@drawable/user_icon"
-            android:inputType="text"
-            android:textCursorDrawable="@drawable/cursor_color" />
+            android:text="@string/cancel" />
 
-        <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/userName_hint"
-        style="@style/CustomTextInputLayout"
-        android:layout_marginTop="17dp">
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/birthdayInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/birthday"
-        style="@style/CustomTextInputLayout"
-        app:boxCornerRadiusTopStart=""
-        android:layout_marginTop="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/birthdayEditText"
+        <View
+            style="@style/ViewStyle"
             android:layout_width="match_parent"
-            android:inputType="date"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/cil_calendar"
-            android:textCursorDrawable="@drawable/cursor_color"/>
+            android:layout_height="2dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email_hint"
-        style="@style/CustomTextInputLayout"
-        android:layout_marginTop="15dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:drawableEnd="@drawable/mail"
-            android:background="@drawable/bordered_edit_text"
-            android:textCursorDrawable="@drawable/cursor_color"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingStart="21dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/SignUpTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up" />
 
+            <View
+                style="@style/ViewStyle2"
+                android:layout_width="90dp"
+                android:layout_height="2dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/newPass_hint"
-        style="@style/CustomTextInputLayout"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleDrawable="@drawable/eye_icon"
-        app:passwordToggleTint="@color/whiterGrey"
-        android:layout_marginTop="15dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usernameInputLayout"
+                style="@style/CustomRegisterTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/userName_hint">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            app:passwordToggleEnabled="true"
-            android:background="@drawable/bordered_edit_text"
-            android:textCursorDrawable="@drawable/cursor_color"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usernameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/user_icon"
+                    android:inputType="text"
+                    android:textCursorDrawable="@drawable/cursor_color" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/birthdayInputLayout"
+                style="@style/CustomRegisterTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/birthday">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmPasswordInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/confirmPass_hint"
-        android:layout_marginTop="15dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleDrawable="@drawable/eye_icon"
-        app:passwordToggleTint="@color/whiterGrey"
-        style="@style/CustomTextInputLayout">
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/birthdayEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/cil_calendar"
+                    android:inputType="date"
+                    android:textCursorDrawable="@drawable/cursor_color"
+                    app:mask="####-##-##" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirmPasswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:drawableEnd="@drawable/eye_icon"
-            android:background="@drawable/bordered_edit_text"
-            android:textCursorDrawable="@drawable/cursor_color"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signUpButton"
-        android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:text="@string/sign_up"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:background="@drawable/bordered_button"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInputLayout"
+                style="@style/CustomRegisterTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email_hint">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signInButton"
-        android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:text="@string/sign_in"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:layout_marginTop="19dp"
-        android:textAllCaps="false"
-        style="@style/Widget.MaterialComponents.Button.TextButton" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/mail"
+                    android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@drawable/cursor_color" />
 
-</LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
+                style="@style/CustomRegisterTextInputLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/newPass_hint"
+                app:passwordToggleDrawable="@drawable/eye_icon">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@drawable/cursor_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPasswordInputLayout"
+                style="@style/CustomRegisterTextInputLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirmPass_hint"
+                app:passwordToggleDrawable="@drawable/eye_icon">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confirmPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@drawable/cursor_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signUpButton"
+                style="@style/LoginButtonStyleReg"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_up" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signInButton"
+                style="@style/RegisterButtonStyle2"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in" />
+
+        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

@@ -5,22 +5,22 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.gallery_test.view.SplashFragment"
+        android:name="com.example.gallery_test.view.splashscreen.SplashFragment"
         android:label="SplashScreenFragment" />
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.gallery_test.view.WelcomePageFragment"
+        android:name="com.example.gallery_test.view.welcomepage.WelcomePageFragment"
         android:label="WelcomeFragment" />
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.gallery_test.view.LoginFragment"
+        android:name="com.example.gallery_test.view.authorization.LoginFragment"
         android:label="LoginFragment" />
 
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="com.example.gallery_test.view.RegistrationFragment"
+        android:name="com.example.gallery_test.view.authorization.RegistrationFragment"
         android:label="RegistrationFragment" />
 
 </navigation>

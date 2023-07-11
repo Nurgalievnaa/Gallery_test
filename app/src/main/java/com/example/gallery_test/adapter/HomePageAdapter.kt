@@ -3,8 +3,8 @@ package com.example.gallery_test.adapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.gallery_test.view.HomeNewFragment
-import com.example.gallery_test.view.HomePopularFragment
+import com.example.gallery_test.view.home.HomeNewFragment
+import com.example.gallery_test.view.home.HomePopularFragment
 
 private const val NUM_TABS = 2
 
