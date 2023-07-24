@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gallery_test.App
 import com.example.gallery_test.R
+import com.example.gallery_test.view.home.HomePageFragment
 import com.example.gallery_test.view.splashscreen.SplashFragment
 
 class MainActivity : AppCompatActivity() {

@@ -17,4 +17,19 @@
     <string name="welcome_string">Welcome!</string>
     <string name="create_an_account_string">Create an account</string>
     <string name="i_already_have_an_account_string">I already have an account</string>
+    <string name="search">Search</string>
+    <string name="save">Save</string>
+    <string name="upload_photo">Upload photo</string>
+    <string name="personal_data">Personal Data</string>
+    <string name="user_name">User Name</string>
+    <string name="e_mail_adress">E-mail adress</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password2">New Password</string>
+    <string name="confirm_password2">Confirm Password</string>
+    <string name="you_can">You can</string>
+    <string name="delete_your_account">delete your account</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="add">Add</string>
 </resources>

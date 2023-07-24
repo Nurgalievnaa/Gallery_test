@@ -7,8 +7,8 @@ import com.example.gallery_test.model.PhotoResponse
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class HomeNewViewModel @Inject constructor(
-    private val homeNewRepository: HomeNewRepository
+class HomeViewModel @Inject constructor(
+    private val homeNewPopularRepository: HomeRepository
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     private val _photoList = MutableLiveData<PhotoResponse>()
@@ -18,16 +18,16 @@ class HomeNewViewModel @Inject constructor(
     val error: LiveData<String> get() = _error
 
     fun fetchPhotos(isNew: Boolean?, isPopular: Boolean?) {
-        homeNewRepository.getPhotos(isNew, isPopular)
+        homeNewPopularRepository.getPhotos(isNew, isPopular)
             .subscribe({ response ->
                 _photoList.value = response
             }, { error ->
-                showError(error)
+                handleError(error)
             })
             .let { compositeDisposable.add(it) }
     }
 
-    fun showError(error: Throwable) {
+    fun handleError(error: Throwable) {
         _error.value = error.message
     }
 

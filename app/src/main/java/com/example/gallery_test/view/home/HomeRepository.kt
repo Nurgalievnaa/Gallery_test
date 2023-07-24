@@ -7,13 +7,11 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeNewRepository @Inject constructor(
-    private val photoApiService: ApiService
-) {
-    fun getPhotos(isNew: Boolean?, isPopular: Boolean?): Single<PhotoResponse> {
+class HomeRepository  @Inject constructor(
+    private val photoApiService: ApiService) {
+    fun getPhotos(isNew: Boolean?,isPopular: Boolean?): Single<PhotoResponse> {
         return photoApiService.getPhotos(isNew, isPopular)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
     }
 }
-
