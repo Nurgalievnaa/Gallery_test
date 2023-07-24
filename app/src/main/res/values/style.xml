@@ -31,6 +31,13 @@
         <item name="boxCornerRadiusTopStart">6dp</item>
     </style>
 
+    <style name="CustomDescrTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">17dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+    </style>
+
     <style name="CustomRegisterTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/whiteGrey</item>
         <item name="android:layout_marginTop">15dp</item>
@@ -49,6 +56,16 @@
         <item name="passwordToggleEnabled">true</item>
         <item name="passwordToggleTint">@color/whiterGrey</item>
     </style>
+
+    <style name="CustomTextInputLayoutPasswords" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/whiteGrey</item>
+        <item name="android:layout_marginTop">17dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/whiterGrey</item>
+    </style>
+
 
     <style name="CustomRegisterTextInputLayout2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/whiteGrey</item>
@@ -167,5 +184,37 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <style name="CancelTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+    </style>
+
+    <style name="SaveTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">290dp</item>
+        <item name="android:textColor">@color/pink</item>
+    </style>
+
+    <style name="LineViewStyle" parent="android:Widget.TextView">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/whiteGrey</item>
+    </style>
+
+    <style name="ImageViewStyle" parent="android:Widget.TextView">
+        <item name="android:background">@drawable/circular_background</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="ImageTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ImageTextViewStyle2" parent="android:Widget.TextView">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 
 </resources>

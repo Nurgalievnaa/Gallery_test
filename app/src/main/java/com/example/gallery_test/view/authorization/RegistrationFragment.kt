@@ -1,6 +1,5 @@
 package com.example.gallery_test.view.authorization
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -14,10 +13,10 @@ import com.example.gallery_test.BaseFragment
 import com.example.gallery_test.R
 import com.example.gallery_test.databinding.FragmentRegistrationBinding
 import com.example.gallery_test.factory.RegistrationViewModelFactory
+import com.example.gallery_test.model.TokenResponse
 import com.example.gallery_test.utils.toast
 import com.example.gallery_test.view.BottomNavigationFragment
 import com.example.gallery_test.view.welcomepage.WelcomePageFragment
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
 
@@ -28,12 +27,11 @@ class RegistrationFragment : BaseFragment() {
     lateinit var registerViewModelFactory: RegistrationViewModelFactory
 
     private lateinit var registrationViewModel: RegistrationViewModel
-    private val compositeDisposable = CompositeDisposable()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (context.applicationContext as App).applicationComponent.inject(this)
-        registrationViewModel = ViewModelProvider(this, registerViewModelFactory)[RegistrationViewModel::class.java]
+        registrationViewModel = ViewModelProvider(this, registerViewModelFactory).get(RegistrationViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,31 +39,25 @@ class RegistrationFragment : BaseFragment() {
         return binding.root
     }
 
-    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        registrationViewModel.isBirthdayValid.observe(viewLifecycleOwner) { isValid ->
+            if (isValid) {
+                binding.birthdayInputLayout.error = null
+            } else {
+                binding.birthdayInputLayout.error = "Invalid date format or values"
+            }
+        }
 
         binding.signUpButton.setOnClickListener {
-            val username = binding.usernameEditText.text.toString()
-            val email = binding.emailEditText.text.toString()
-            val birthday = binding.birthdayEditText.text.toString()
-            val password = binding.passwordEditText.text.toString()
-            val confirmPassword = binding.confirmPasswordEditText.text.toString()
-
-            //todo move subscribe to viewModel
-            val disposable = registrationViewModel.register(username, email, birthday, password, confirmPassword)
-                .subscribe({
-                    activity?.runOnUiThread {
-                        replaceFragment(R.id.fragment_container, BottomNavigationFragment())
-                        context?.toast("You are registered")
-                    }
-                }, {
-                    activity?.runOnUiThread {
-                        context?.toast("Registration failed. Please try again.")
-                    }
-                })
-            compositeDisposable.add(disposable)
+            registrationViewModel.register(
+                binding.usernameEditText.text.toString(),
+                binding.emailEditText.text.toString(),
+                binding.birthdayEditText.text.toString(),
+                binding.passwordEditText.text.toString(),
+                binding.confirmPasswordEditText.text.toString()
+            )
         }
 
         binding.signInButton.setOnClickListener {
@@ -73,12 +65,8 @@ class RegistrationFragment : BaseFragment() {
         }
 
         binding.usernameEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
             override fun afterTextChanged(s: Editable?) {
                 val username = s.toString()
                 binding.usernameInputLayout.error = if (username.length < 6) {
@@ -105,31 +93,7 @@ class RegistrationFragment : BaseFragment() {
         binding.birthdayEditText.setOnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 val date = binding.birthdayEditText.text?.toString()?.trim()
-                if (date.isNullOrEmpty()) {
-                    binding.birthdayInputLayout.error = "Date is required"
-                } else if (!date.matches(Regex("\\d{4}-\\d{2}-\\d{2}"))) {
-                    // Date format is invalid, show error message
-                    binding.birthdayInputLayout.error = "Invalid date format. Use yyyy-mm-dd"
-                } else {
-                    val parts = date.split("-")
-                    val year = parts[0].toInt()
-                    val month = parts[1].toInt()
-                    val day = parts[2].toInt()
-
-                    if (year < 1920 || year > 2006) {
-                        binding.birthdayInputLayout.error = "Invalid year. Must be between 1900 and 2100"
-                    } else if (month == 2 && day > 28) {
-                        binding.birthdayInputLayout.error = "Invalid. February is until 28"
-                    } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
-                        binding.birthdayInputLayout.error = "Invalid month. Month is finished on 30"
-                    } else if (month < 1 || month > 12) {
-                        binding.birthdayInputLayout.error = "Invalid month. Must be between 1 and 12"
-                    } else if (day < 1 || day > 31) {
-                        binding.birthdayInputLayout.error = "Invalid day. Must be between 1 and 31"
-                    } else {
-                        binding.birthdayInputLayout.error = null
-                    }
-                }
+                registrationViewModel.validateBirthday(date)
             }
         }
 
@@ -137,9 +101,7 @@ class RegistrationFragment : BaseFragment() {
 
         binding.passwordEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
-
             override fun afterTextChanged(s: Editable?) {
                 val password = s.toString()
                 binding.passwordInputLayout.error = if (password.length < 6) {
@@ -152,9 +114,7 @@ class RegistrationFragment : BaseFragment() {
 
         binding.confirmPasswordEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
-
             override fun afterTextChanged(s: Editable?) {
                 val confirmPassword = s.toString()
                 binding.confirmPasswordInputLayout.error =
@@ -169,5 +129,30 @@ class RegistrationFragment : BaseFragment() {
         binding.cancelButtonOfRegister.setOnClickListener {
             replaceFragment(R.id.fragment_container, WelcomePageFragment())
         }
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        registrationViewModel.registerLiveData.observe(viewLifecycleOwner) { response ->
+            when (response) {
+                is RegisterResponse.Error -> showError(response)
+                is RegisterResponse.Success -> registerSuccess(response.tokenResponse)
+            }
+        }
+    }
+
+    private fun showError(response: RegisterResponse.Error) {
+        context?.toast(response.error.localizedMessage.orEmpty())
+    }
+
+    private fun registerSuccess(tokenResponse: TokenResponse) {
+        val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putString("user_token", tokenResponse.accessToken)
+            apply()
+        }
+
+        replaceFragment(R.id.fragment_container, BottomNavigationFragment())
+        context?.toast("Registration successful")
     }
 }

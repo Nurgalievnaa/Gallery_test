@@ -1,15 +1,14 @@
 package com.example.gallery_test.view.authorization
 
-import android.content.SharedPreferences
 import com.example.gallery_test.api.ApiService
+import com.example.gallery_test.model.TokenResponse
 import com.example.gallery_test.model.UserData
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class RegistrationRepository@Inject constructor(
-    private val apiService: ApiService
-) {
+class RegistrationRepository @Inject constructor(private val apiService: ApiService) {
 
     fun registerUser(
         username: String,
@@ -17,7 +16,14 @@ class RegistrationRepository@Inject constructor(
         birthday: String,
         password: String,
         confirmPassword: String
-    ): Single<Boolean> {
+    ): Single<TokenResponse> {
+        val user = UserData(
+            username = username,
+            email = email,
+            birthday = birthday,
+            password = password
+        )
+
         if (username.isBlank() || email.isBlank() || birthday.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
             return Single.error(IllegalArgumentException("All fields must be filled"))
         }
@@ -30,12 +36,8 @@ class RegistrationRepository@Inject constructor(
             return Single.error(IllegalArgumentException("Invalid email address or username"))
         }
 
-        val user = UserData(username, email, birthday, password, confirmPassword)
-
-        return apiService.registerUser(user)
+        return apiService.registerUser(user = user)
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .map { response -> true }
-            .onErrorReturnItem(false)
     }
-
 }

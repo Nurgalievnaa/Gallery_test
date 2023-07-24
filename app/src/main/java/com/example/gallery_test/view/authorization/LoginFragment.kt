@@ -13,9 +13,7 @@ import com.example.gallery_test.BaseFragment
 import com.example.gallery_test.view.BottomNavigationFragment
 import com.example.gallery_test.utils.toast
 import com.example.gallery_test.App
-import com.example.gallery_test.view.home.HomePageFragment
 import com.example.gallery_test.view.welcomepage.WelcomePageFragment
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 
 class LoginFragment : BaseFragment() {

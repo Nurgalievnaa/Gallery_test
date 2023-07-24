@@ -11,9 +11,8 @@ import com.example.gallery_test.databinding.FragmentWelcomePageBinding
 import com.example.gallery_test.view.authorization.LoginFragment
 import com.example.gallery_test.view.authorization.RegistrationFragment
 
-class WelcomePageFragment : Fragment() {
+class WelcomePageFragment : BaseFragment() {
     private lateinit var binding: FragmentWelcomePageBinding
-    private lateinit var fragmentHelper: BaseFragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentWelcomePageBinding.inflate(inflater, container, false)
@@ -24,17 +23,11 @@ class WelcomePageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loginButton.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, LoginFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(R.id.fragment_container, LoginFragment())
         }
 
         registrationButton.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, RegistrationFragment())
-                .addToBackStack(null)
-                .commit()
+            replaceFragment(R.id.fragment_container,RegistrationFragment())
         }
     }
 }

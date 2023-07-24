@@ -29,7 +29,6 @@ class LoginViewModel @Inject constructor(
             .let { compositeDisposable.add(it) }
     }
 
-
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
